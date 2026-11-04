@@ -1,5 +1,5 @@
 """
-generate_data.py
+generateData.py
 Generates simulated commercial-building events (HVAC, NETWORK, ACCESS, CCTV,
 FIRE_ALARM) and loads them into PostgreSQL.
 

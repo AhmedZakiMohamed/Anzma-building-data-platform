@@ -288,3 +288,5 @@ app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "static")), na
 @app.get("/dashboard", include_in_schema=False)
 def dashboard_page():
     return FileResponse(os.path.join(BASE_DIR, "static", "dashboard.html"))    
+from alerts_api import create_alerts_router
+app.include_router(create_alerts_router(db))

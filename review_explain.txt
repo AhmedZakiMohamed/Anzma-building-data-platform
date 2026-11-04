@@ -1,0 +1,85 @@
+== NET_LINK_FLAPPING (alert 50) | OLLAMA | attempts=1
+   alert  : SW-CORE-01: 4 link-down events within 24 min (625 s total downtime).
+   summary: The network link for port Gi1/0/48 on SW-CORE-01 experienced multiple flaps between 09:06 and 09:32, with four link-down events [E1, E3, E5, E7] and corresponding link-up events [E2, E4, E6, E8]. The instability suggests an issue with the cable, transceiver, or port [E1, E3, E5, E7].
+   causes : ['UNSTABLE_LINK']
+   edited : - 
+
+== NET_BANDWIDTH_HIGH (alert 48) | OLLAMA | attempts=1
+   alert  : SW-CORE-01: bandwidth averaged 981 Mbps (peak 1009 Mbps) over 7 consecutive readings, above the 900 Mbps threshold.
+   summary: The network bandwidth usage on SW-CORE-01 in the Server Room exceeded the critical threshold for 40 minutes, peaking at 1008.6 Mbps at 09:35 [E6]. Packet loss was observed, with a maximum of 4.13% [E4]. This indicates link saturation [E1].
+   causes : ['LINK_SATURATION']
+   edited : - 
+
+== NET_PACKET_LOSS (alert 49) | OLLAMA | attempts=1
+   alert  : SW-CORE-01: packet loss averaged 3.0% (max 4.1%) over 7 consecutive readings, above the 1% threshold.
+   summary: From 09:00 to 09:40 UTC, the network on SW-CORE-01 experienced sustained packet loss, peaking at 4.13% [E4]. This coincided with bandwidth usage fluctuating between 957.1 Mbps and 1008.6 Mbps [E3, E6]. The loss maxed out at 4.13% [E4], which is above the critical threshold of 3.0% [E1, E2, E4, E7]. [E1, E2, E3, E4, E5, E6, E7]
+   causes : ['CONGESTION']
+   edited : - 
+
+== NET_LINK_DOWN (alert 47) | OLLAMA | attempts=1
+   alert  : SW-ACCESS-02: link went down for 540 s.
+   summary: The network link for port Gi1/0/48 on SW-ACCESS-02 was down from [E1] 08:41 to [E2] 08:50, lasting 540 seconds. This suggests a transient outage.
+   causes : ['TRANSIENT_OUTAGE']
+   edited : ['removed [C1]'] 
+
+== HVAC_HIGH_TEMP (alert 45) | OLLAMA | attempts=1
+   alert  : HVAC-AHU-01 (Open Office): temperature peaked at 38.6 °C, above the 29 °C warning threshold, across 1 reading(s) over 0 min.
+   summary: The HVAC temperature in the Open Office reached 38.56°C at 02:52, which is above the critical threshold of 32°C [E1]. The fan was off at the time, indicating a possible fan or motor failure.
+   causes : ['FAN_FAILURE']
+   edited : ['removed [FAN_FAILURE]'] 
+
+== ACC_DOOR_HELD_OPEN (alert 44) | OLLAMA | attempts=1
+   alert  : DOOR-SERVER-01: door held open for 150 s (limit 120 s).
+   summary: The door [E1] was held open for 150 seconds, exceeding the limit of 120 seconds [E1]. This may indicate the door is obstructed.
+   causes : ['DOOR_OBSTRUCTED']
+   edited : ['removed [C1]'] 
+
+== CCTV_OFFLINE_LONG (alert 42) | OLLAMA | attempts=1
+   alert  : CAM-SERVER-01 (Server Room) was offline for 35 min.
+   summary: The camera went offline at [E1] due to a NO_SIGNAL issue and remained offline until [E2] when it came back online. The camera was offline for 35 minutes.
+   causes : ['CAMERA_RECOVERED']
+   edited : - 
+
+== SEC_BLIND_SPOT_ACCESS (alert 43) | OLLAMA | attempts=1
+   alert  : 5 door event(s) at Server Room outside working hours while CAM-SERVER-01 was offline (35 min).
+   summary: Between 01:30 and 02:05 UTC, there were 5 access events in the Server Room, including two by the same card (CARD-1007) and one by another card (CARD-1051), while the camera was offline due to a no signal issue ([E1], [E2], [E3], [E4], [E5], [E6]). The camera came online at 02:05 UTC ([E7]).
+   causes : ['UNMONITORED_ACCESS']
+   edited : - 
+
+== ACC_DENIAL_SPIKE (alert 41) | OLLAMA | attempts=1
+   alert  : DOOR-SERVER-01 (Server Room): 14 denied attempts over 13 min (14 within 15 min) using 3 distinct card(s).
+   summary: From 23:00 to 23:13, 14 access attempts were denied, with 3 distinct cards used, all marked as either unknown cards or no permission, indicating an unauthorised attempt ([E1]-[E10]).
+   causes : ['UNAUTHORISED_ATTEMPT']
+   edited : - 
+
+== FIRE_SMOKE (alert 40) | OLLAMA | attempts=1
+   alert  : FA-PANEL-02 (Meeting Rooms): smoke detected.
+   summary: Smoke was detected at 19:40 [E1] in the Meeting Rooms. The alarm was reset at 19:50 [E2].
+   causes : ['ALARM_CLEARED']
+   edited : - 
+
+== ACC_DOOR_FORCED (alert 39) | OLLAMA | attempts=1
+   alert  : DOOR-LOBBY-01 (Lobby): door reported as forced open.
+   summary: The door in the Lobby [E1] was forced open at 15:44 UTC. No thresholds were crossed, and the event occurred during regular hours.
+   causes : ['FORCED_ENTRY']
+   edited : ['(E1) -> [E1]'] 
+
+== FIRE_BATTERY_LOW (alert 37) | OLLAMA | attempts=1
+   alert  : FA-PANEL-02 (Meeting Rooms): battery fell to 7.0% with mains power lost.
+   summary: The fire panel battery percentage dropped from 18.3% to 7.0% between 14:20 and 15:00 [E1, E6], indicating a critical situation. The mains power was reported as lost during this period [E1, E6].
+   causes : ['MAINS_LOSS']
+   edited : - 
+
+== HVAC_TEMP_ANOMALY (alert 34) | OLLAMA | attempts=1
+   alert  : HVAC-CRAC-01 (Server Room): high deviation, peak 33.9 °C vs a normal 20.0 °C for working hours (robust z = 32.2) over 16 readings.
+   summary: The temperature in the Server Room rose from 21.96°C to 33.87°C over 75 minutes, with the fan off during the entire period ([E1]-[E10]). This sustained increase, along with the fan being off, suggests a possible fan or motor failure.
+   causes : ['FAN_FAILURE']
+   edited : ['removed [C1]'] 
+
+== HVAC_FILTER_FAULT (alert 31) | OLLAMA | attempts=1
+   alert  : HVAC-AHU-02 (Meeting Rooms) reported a filter fault.
+   summary: At 09:40 UTC, a filter fault was reported due to high differential pressure in the HVAC system serving the Meeting Rooms [E1].
+   causes : ['CLOGGED_FILTER']
+   edited : - 
+
+Summaries edited by normalization: 5/14

@@ -5,6 +5,17 @@ Simulated commercial-building dataset (HVAC, Network, Access Control, CCTV, Fire
 - **Day 2 (Data Engineering & System Integration):** retrieve reliable data by **asset**, **location**, **timestamp** and **system type**.
 - **Day 3 (Operational Dashboard & KPIs):** an interactive dashboard with measurable KPIs, historical trends, system filters, status indicators and equipment-health information, all calculated from the underlying data.
 
+## Deliverables by Day
+
+| Day | Deliverable | Location / Details |
+|---|---|---|
+| 2 | Data ingestion service | `POST /ingest` in `App.py` |
+| 2 | Database schema & API docs | `schema.sql`, Swagger UI at `/docs` |
+| 2 | Sample records generator | `generateData.py` |
+| 2 | Data-flow diagram | `docs/Data-Flow-Diagram.png` |
+| 3 | Operational dashboard (8 KPIs, trends, status) | `/dashboard`, `static/`, `dashboard_api.py` |
+| 3 | KPI definitions & calculation logic | `KPI_DEFINITIONS.md` |
+
 ## Architecture / Data Flow Diagram
 
 ![Data Flow Diagram](docs/Data-Flow-Diagram.png)
